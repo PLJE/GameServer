@@ -28,7 +28,7 @@ public class SubActivity extends AppCompatActivity {
         findViewById(R.id.bt_game).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SubActivity.this, GameActivity.class);
+                Intent intent = new Intent(SubActivity.this, GameMainActivity.class);
                 startActivity(intent);
             }
         });
