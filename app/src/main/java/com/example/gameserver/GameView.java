@@ -14,10 +14,18 @@ import android.media.SoundPool;
 import android.os.Build;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GameView extends SurfaceView implements Runnable{
     private Thread thread;
@@ -34,6 +42,11 @@ public class GameView extends SurfaceView implements Runnable{
     private Flight flight;
     private GameActivity activity;
     private Background background1, background2;
+
+    public int returnscore = 0;
+    private String BASE_URL = "http://192.249.18.168:80";
+    private RetrofitInterface retrofitInterface;
+    private Retrofit retrofit; //
 
     public GameView(GameActivity activity, int screenX, int screenY) {
         super(activity);
@@ -180,7 +193,33 @@ public class GameView extends SurfaceView implements Runnable{
 
             if (Rect.intersects(bird.getCollisionShape(), flight.getCollisionShape())) {
 
-                isGameOver = true;
+                isGameOver = true; // game over?
+
+                //-------------------------------------------------------------
+                retrofit = new Retrofit.Builder()
+                        .baseUrl(BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+                retrofitInterface = retrofit.create(RetrofitInterface.class);
+
+                HashMap<String, String> map = new HashMap<>();
+                map.put("score" , String.valueOf(score));
+                map.put("nickName" , ((SubActivity)SubActivity.mContext).getNick());
+                //Toast.makeText(activity, score, Toast.LENGTH_SHORT).show();
+
+                Call<Void> call = retrofitInterface.executeSendScore(map);
+                call.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+
+                    }
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+
+                    }
+                });
+                //------------------------------------------------------------
+
                 return;
             }
 
@@ -206,6 +245,9 @@ public class GameView extends SurfaceView implements Runnable{
                 canvas.drawBitmap(flight.getDead(), flight.x, flight.y, paint);
                 getHolder().unlockCanvasAndPost(canvas);
                 saveIfHighScore();
+
+                System.out.println("score " + score);
+
                 waitBeforeExiting ();
                 return;
             }

@@ -1,5 +1,6 @@
 package com.example.gameserver;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -41,6 +42,8 @@ public class MyActivity extends AppCompatActivity {
     private TextView nickname ;
     private ImageView Img;
 
+    //public static Context mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +53,8 @@ public class MyActivity extends AppCompatActivity {
         nick = intent.getStringExtra("name");
         image = intent.getStringExtra("profileImg");
         email = intent.getStringExtra("email");
+
+        //mContext = this;
 
         findViewById(R.id.bt_logout).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,5 +81,7 @@ public class MyActivity extends AppCompatActivity {
         if(image != null)
             Glide.with(this).load(image).into(Img);
     }
-
+//    public String getNick() {
+//        return nick;
+//    }
 }

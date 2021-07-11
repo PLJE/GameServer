@@ -1,18 +1,28 @@
 package com.example.gameserver;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Rank {
-    String rank;
-    String ranknick;
-    public Rank(String rank, String name){
-        this.rank = rank;
-        this.ranknick = name;
+    private String score;
+    private String email;
+    private String password;
+    private String nickName;
+    private String _id;
+    private String __v;
+
+    public String getEmail() {
+        return email;
     }
 
-    public String getRank() {
-        return rank;
+    public String getNickName() {
+        return nickName;
     }
 
-    public String getRanknick() {
-        return ranknick;
+    public String getPassword() {
+        return password;
+    }
+
+    public String getScore() {
+        return score;
     }
 }
