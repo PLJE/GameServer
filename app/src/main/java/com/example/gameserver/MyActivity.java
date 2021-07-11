@@ -73,7 +73,8 @@ public class MyActivity extends AppCompatActivity {
         nickname = (TextView)findViewById(R.id.tv_name);
         nickname.setText(nick);
         Img = findViewById(R.id.iv_image);
-        Glide.with(this).load(image).into(Img);
+        if(image != null)
+            Glide.with(this).load(image).into(Img);
     }
 
 }
