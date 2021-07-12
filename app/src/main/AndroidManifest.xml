@@ -13,12 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GameServer"
         android:usesCleartextTraffic="true">
-        <activity android:name=".GameMainActivity"></activity>
-        <activity android:name=".MyActivity" />
-        <activity android:name=".RankActivity" />
-        <activity android:name=".SubActivity" />
-        <activity android:name=".GameActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".GameMainActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity android:name=".MyActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".RankActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SubActivity"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".GameActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

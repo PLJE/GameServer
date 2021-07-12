@@ -35,6 +35,7 @@ public class SubActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SubActivity.this, GameMainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
         findViewById(R.id.bt_rank).setOnClickListener(new View.OnClickListener() {
@@ -42,6 +43,7 @@ public class SubActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SubActivity.this, RankActivity.class);
                 startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
         findViewById(R.id.bt_mypage).setOnClickListener(new View.OnClickListener() {
@@ -52,6 +54,7 @@ public class SubActivity extends AppCompatActivity {
                 intent.putExtra("profileImg", image);
                 intent.putExtra("email", email);
                 startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
     }

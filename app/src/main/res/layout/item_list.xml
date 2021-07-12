@@ -25,7 +25,9 @@
             android:layout_weight="1"
             android:gravity="center|center_horizontal"
             android:text="TextView"
-            android:textAlignment="center" />
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/katuri"/>
 
         <TextView
             android:id="@+id/tv_score"
@@ -34,7 +36,9 @@
             android:layout_weight="1"
             android:gravity="center|center_horizontal"
             android:text="TextView"
-            android:textAlignment="center" />
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/katuri"/>
 
         <TextView
             android:id="@+id/tv_nick"
@@ -43,7 +47,9 @@
             android:layout_weight="1"
             android:gravity="center|center_horizontal"
             android:text="TextView"
-            android:textAlignment="center" />
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/katuri"/>
 
     </LinearLayout>
     <!--구분선-->

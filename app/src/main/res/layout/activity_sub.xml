@@ -6,39 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".SubActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="0dp" />
+
     <Button
         android:id="@+id/bt_game"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="180dp"
+        android:layout_width="130dp"
+        android:layout_height="90dp"
+        android:fontFamily="@font/katuri"
         android:text="Play!"
-        app:layout_constraintEnd_toEndOf="@+id/bt_rank"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/bt_rank"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="30dp"
+        android:background="@drawable/radius"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_rank"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
 
     <Button
         android:id="@+id/bt_mypage"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="216dp"
-        android:text="mypage"
+        android:layout_width="130dp"
+        android:layout_height="90dp"
+        android:fontFamily="@font/katuri"
+        android:text="my page"
+        android:background="@drawable/radius"
+        android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/bt_rank"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/bt_rank" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
 
     <Button
         android:id="@+id/bt_rank"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="130dp"
+        android:layout_height="90dp"
+        android:fontFamily="@font/katuri"
         android:text="Rank"
-        app:layout_constraintBottom_toTopOf="@+id/bt_mypage"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/radius"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_mypage"
+        app:layout_constraintHorizontal_bias="0.759"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_game"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

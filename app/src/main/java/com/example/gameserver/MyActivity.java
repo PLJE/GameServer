@@ -77,7 +77,7 @@ public class MyActivity extends AppCompatActivity {
                     bestscore = result.getScore();
                     //Toast.makeText(MyActivity.this, "best" + bestscore, Toast.LENGTH_SHORT).show();
                     tv_bestscore = (TextView)findViewById(R.id.tv_bestscore);
-                    tv_bestscore.setText("나의 최고점수: " + bestscore + "점");
+                    tv_bestscore.setText("최고기록: " + bestscore + "점");
 
                 } else if (response.code() == 404) { //로그인 실패
 
