@@ -23,14 +23,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:gravity="center|center_horizontal"
+            android:text="TextView"
+            android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/tv_rank_nick"
+            android:id="@+id/tv_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:gravity="center|center_horizontal"
+            android:text="TextView"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/tv_nick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center|center_horizontal"
+            android:text="TextView"
+            android:textAlignment="center" />
 
     </LinearLayout>
     <!--구분선-->

@@ -56,18 +56,18 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        (findViewById(R.id.tv_login)).setOnClickListener(new View.OnClickListener() {  //로그인
-            @Override
-            public void onClick(View v) {
-                handleLoginDialog();
-            }
-        });
-        (findViewById(R.id.tv_signup)).setOnClickListener(new View.OnClickListener() { //회원가입
-            @Override
-            public void onClick(View v) {
-                handleSignupDialog();
-            }
-        });
+//        (findViewById(R.id.tv_login)).setOnClickListener(new View.OnClickListener() {  //로그인
+//            @Override
+//            public void onClick(View v) {
+//                handleLoginDialog();
+//            }
+//        });
+//        (findViewById(R.id.tv_signup)).setOnClickListener(new View.OnClickListener() { //회원가입
+//            @Override
+//            public void onClick(View v) {
+//                handleSignupDialog();
+//            }
+//        });
 
         mSessionCallback = new ISessionCallback()
         {
@@ -149,94 +149,94 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         Session.getCurrentSession().removeCallback(mSessionCallback);
     }
-    private void handleLoginDialog() {
-        View view = getLayoutInflater().inflate(R.layout.login_dialog, null);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setView(view).show(); //로그인 창을 alertdialog로 띄워줌
-
-        Button loginBtn = view.findViewById(R.id.login);
-        final EditText emailEdit = view.findViewById(R.id.emailEdit);
-        final EditText passwordEdit = view.findViewById(R.id.passwordEdit);
-
-        loginBtn.setOnClickListener(new View.OnClickListener() { //입력 다하고 로그인 버튼 누름
-            @Override
-            public void onClick(View view) {
-
-                HashMap<String, String> map = new HashMap<>();
-
-                map.put("email", emailEdit.getText().toString());
-                map.put("password", passwordEdit.getText().toString());
-
-                Call<LoginResult> call = retrofitInterface.executeLogin(map);
-
-                call.enqueue(new Callback<LoginResult>() {
-                    @Override
-                    public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
-                        if (response.code() == 200) { //로그인 성공시 서버에서 res.status(200).send(JSON.stringify(오브젝트)) 받음.
-                            LoginResult result = response.body(); //로그인 성공시 서버로부터 받은 해당 사용자의 name, email을 담고있음
-                            Toast.makeText(MainActivity.this, result.getName() + "님 환영합니다!", Toast.LENGTH_SHORT).show();
-
-                            Intent intent = new Intent(MainActivity.this, SubActivity.class);
-                            intent.putExtra("name", result.getName());
-                            startActivity(intent);
-
-                        } else if (response.code() == 404) { //로그인 실패
-                            Toast.makeText(MainActivity.this, "비밀번호가 틀렸습니다",
-                                    Toast.LENGTH_LONG).show();
-                        }
-                    }
-                    @Override
-                    public void onFailure(Call<LoginResult> call, Throwable t) {
-                        Toast.makeText(MainActivity.this, "로그인에 실패하였습니다",
-                                Toast.LENGTH_LONG).show();
-                    }
-                });
-            }
-        });
-    }
-    private void handleSignupDialog() {
-
-        View view = getLayoutInflater().inflate(R.layout.signup_dialog, null);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this); //정보를 입력하는 창
-        builder.setView(view).show();
-
-        Button signupBtn = view.findViewById(R.id.signup);
-        final EditText nameEdit = view.findViewById(R.id.nameEdit);
-        final EditText emailEdit = view.findViewById(R.id.emailEdit);
-        final EditText passwordEdit = view.findViewById(R.id.passwordEdit);
-
-        signupBtn.setOnClickListener(new View.OnClickListener() { //입력 다하고 회원가입 버튼 누름
-            @Override
-            public void onClick(View view) {
-
-                HashMap<String, String> map = new HashMap<>();
-
-                map.put("nickName", nameEdit.getText().toString());
-                map.put("email", emailEdit.getText().toString());
-                map.put("password", passwordEdit.getText().toString());
-
-                Call<Void> call = retrofitInterface.executeSignup(map);
-
-                call.enqueue(new Callback<Void>() {
-                    @Override
-                    public void onResponse(Call<Void> call, Response<Void> response) {
-
-                        if (response.code() == 200) {
-                            Toast.makeText(MainActivity.this,
-                                    "Signed up successfully", Toast.LENGTH_LONG).show();
-                        } else if (response.code() == 400) {
-                            Toast.makeText(MainActivity.this,
-                                    "Already registered", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                    @Override
-                    public void onFailure(Call<Void> call, Throwable t) {
-                        Toast.makeText(MainActivity.this, t.getMessage(),
-                                Toast.LENGTH_LONG).show();
-                    }
-                });
-            }
-        });
-    }
+//    private void handleLoginDialog() {
+//        View view = getLayoutInflater().inflate(R.layout.login_dialog, null);
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setView(view).show(); //로그인 창을 alertdialog로 띄워줌
+//
+//        Button loginBtn = view.findViewById(R.id.login);
+//        final EditText emailEdit = view.findViewById(R.id.emailEdit);
+//        final EditText passwordEdit = view.findViewById(R.id.passwordEdit);
+//
+//        loginBtn.setOnClickListener(new View.OnClickListener() { //입력 다하고 로그인 버튼 누름
+//            @Override
+//            public void onClick(View view) {
+//
+//                HashMap<String, String> map = new HashMap<>();
+//
+//                map.put("email", emailEdit.getText().toString());
+//                map.put("password", passwordEdit.getText().toString());
+//
+//                Call<LoginResult> call = retrofitInterface.executeLogin(map);
+//
+//                call.enqueue(new Callback<LoginResult>() {
+//                    @Override
+//                    public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+//                        if (response.code() == 200) { //로그인 성공시 서버에서 res.status(200).send(JSON.stringify(오브젝트)) 받음.
+//                            LoginResult result = response.body(); //로그인 성공시 서버로부터 받은 해당 사용자의 name, email을 담고있음
+//                            Toast.makeText(MainActivity.this, result.getName() + "님 환영합니다!", Toast.LENGTH_SHORT).show();
+//
+//                            Intent intent = new Intent(MainActivity.this, SubActivity.class);
+//                            intent.putExtra("name", result.getName());
+//                            startActivity(intent);
+//
+//                        } else if (response.code() == 404) { //로그인 실패
+//                            Toast.makeText(MainActivity.this, "비밀번호가 틀렸습니다",
+//                                    Toast.LENGTH_LONG).show();
+//                        }
+//                    }
+//                    @Override
+//                    public void onFailure(Call<LoginResult> call, Throwable t) {
+//                        Toast.makeText(MainActivity.this, "로그인에 실패하였습니다",
+//                                Toast.LENGTH_LONG).show();
+//                    }
+//                });
+//            }
+//        });
+//    }
+//    private void handleSignupDialog() {
+//
+//        View view = getLayoutInflater().inflate(R.layout.signup_dialog, null);
+//
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this); //정보를 입력하는 창
+//        builder.setView(view).show();
+//
+//        Button signupBtn = view.findViewById(R.id.signup);
+//        final EditText nameEdit = view.findViewById(R.id.nameEdit);
+//        final EditText emailEdit = view.findViewById(R.id.emailEdit);
+//        final EditText passwordEdit = view.findViewById(R.id.passwordEdit);
+//
+//        signupBtn.setOnClickListener(new View.OnClickListener() { //입력 다하고 회원가입 버튼 누름
+//            @Override
+//            public void onClick(View view) {
+//
+//                HashMap<String, String> map = new HashMap<>();
+//
+//                map.put("nickName", nameEdit.getText().toString());
+//                map.put("email", emailEdit.getText().toString());
+//                map.put("password", passwordEdit.getText().toString());
+//
+//                Call<Void> call = retrofitInterface.executeSignup(map);
+//
+//                call.enqueue(new Callback<Void>() {
+//                    @Override
+//                    public void onResponse(Call<Void> call, Response<Void> response) {
+//
+//                        if (response.code() == 200) {
+//                            Toast.makeText(MainActivity.this,
+//                                    "회원가입이 완료되었습니다!", Toast.LENGTH_LONG).show();
+//                        } else if (response.code() == 400) {
+//                            Toast.makeText(MainActivity.this,
+//                                    "이미 등록된 닉네임 입니다.", Toast.LENGTH_LONG).show();
+//                        }
+//                    }
+//                    @Override
+//                    public void onFailure(Call<Void> call, Throwable t) {
+//                        Toast.makeText(MainActivity.this, t.getMessage(),
+//                                Toast.LENGTH_LONG).show();
+//                    }
+//                });
+//            }
+//        });
+//    }
 }

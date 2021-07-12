@@ -38,11 +38,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MyActivity extends AppCompatActivity {
 
-    private String nick, image, email;
-    private TextView nickname ;
+    private String nick, image, email , bestscore;
+    private TextView nickname, tv_bestscore ;
     private ImageView Img;
 
-    //public static Context mContext;
+    private String BASE_URL = "http://192.249.18.168:80";
+    private RetrofitInterface retrofitInterface;
+    private Retrofit retrofit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +56,38 @@ public class MyActivity extends AppCompatActivity {
         image = intent.getStringExtra("profileImg");
         email = intent.getStringExtra("email");
 
-        //mContext = this;
+        //-----------------------------------------------------------------------
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        retrofitInterface = retrofit.create(RetrofitInterface.class);
 
+        HashMap<String, String> map = new HashMap<>();
+
+        map.put("nickName", nick);
+
+        Call<BestScore> call = retrofitInterface.getBestScore(map);
+
+        call.enqueue(new Callback<BestScore>() {
+            @Override
+            public void onResponse(Call<BestScore> call, Response<BestScore> response) {
+                if (response.code() == 200) {
+                    BestScore result = response.body();
+                    bestscore = result.getScore();
+                    //Toast.makeText(MyActivity.this, "best" + bestscore, Toast.LENGTH_SHORT).show();
+                    tv_bestscore = (TextView)findViewById(R.id.tv_bestscore);
+                    tv_bestscore.setText("나의 최고점수: " + bestscore + "점");
+
+                } else if (response.code() == 404) { //로그인 실패
+
+                }
+            }
+            @Override
+            public void onFailure(Call<BestScore> call, Throwable t) {
+            }
+        });
+        //---------------------------------------------------------------------------
         findViewById(R.id.bt_logout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,13 +97,17 @@ public class MyActivity extends AppCompatActivity {
                     public void onCompleteLogout()
                     {
                         Intent intent = new Intent(MyActivity.this, MainActivity.class);
-
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                         startActivity(intent);
+                        //Toast.makeText(MyActivity.this, "로그아웃합니다.", Toast.LENGTH_SHORT).show();
                     }
                 });
+//                Intent intent = new Intent(MyActivity.this, MainActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent); //
             }
         });
 
@@ -80,8 +116,7 @@ public class MyActivity extends AppCompatActivity {
         Img = findViewById(R.id.iv_image);
         if(image != null)
             Glide.with(this).load(image).into(Img);
+        //tv_bestscore = (TextView)findViewById(R.id.tv_bestscore);
+        //tv_bestscore.setText("최고점수: " + bestscore + "점");
     }
-//    public String getNick() {
-//        return nick;
-//    }
 }
