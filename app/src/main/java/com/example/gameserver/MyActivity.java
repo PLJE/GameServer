@@ -29,6 +29,7 @@ import com.kakao.util.exception.KakaoException;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -75,6 +76,7 @@ public class MyActivity extends AppCompatActivity {
                 if (response.code() == 200) {
                     BestScore result = response.body();
                     bestscore = result.getScore();
+                  
                     //Toast.makeText(MyActivity.this, "best" + bestscore, Toast.LENGTH_SHORT).show();
                     tv_bestscore = (TextView)findViewById(R.id.tv_bestscore);
                     tv_bestscore.setText("최고기록: " + bestscore + "점");

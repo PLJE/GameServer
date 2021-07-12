@@ -27,17 +27,6 @@ public class RankActivity extends AppCompatActivity {
 //    ArrayList<Rank> test;
     List<Rank> ranking = new ArrayList<Rank>();
 
-
-
-
-
-
-
-
-
-
-
-
     private String BASE_URL = "http://192.249.18.168:80";
     private RetrofitInterface retrofitInterface;
     private Retrofit retrofit;
