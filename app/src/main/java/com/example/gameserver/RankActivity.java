@@ -32,12 +32,6 @@ public class RankActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
     private String BASE_URL = "http://192.249.18.168:80";
     private RetrofitInterface retrofitInterface;
     private Retrofit retrofit;
