@@ -12,55 +12,24 @@
         android:scaleType="centerCrop"
         android:src="@drawable/background" />
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="47dp"
-        android:layout_above="@id/play"
 
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="233dp"
-        android:layout_marginTop="95dp"
-        android:layout_marginEnd="239dp"
-        android:layout_marginBottom="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="78dp"
+        android:layout_marginEnd="240dp"
+        android:layout_marginBottom="282dp"
         android:fontFamily="@font/katuri"
         android:gravity="center"
         android:text="I Have To Fly!"
         android:textColor="#ffffff"
         android:textSize="40sp" />
-
-    <TextView
-        android:id="@+id/play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="295dp"
-        android:layout_marginEnd="302dp"
-        android:layout_marginBottom="153dp"
-        android:fontFamily="@font/katuri"
-        android:text="Play"
-        android:textColor="#000000"
-        android:textSize="64sp" />
-
-    <TextView
-        android:id="@+id/highScoreTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="575dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginRight="39dp"
-        android:layout_marginBottom="354dp"
-        android:text="High Score"
-        android:textColor="#000000"
-        android:textSize="24sp" />
 
     <ImageView
         android:layout_width="36dp"
@@ -69,5 +38,21 @@
         android:layout_margin="16dp"
         android:id="@+id/volumeCtrl"
         android:src="@drawable/ic_baseline_volume_up_24"/>
+
+    <TextView
+        android:id="@+id/play"
+        android:layout_width="194dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="290dp"
+        android:layout_marginEnd="247dp"
+        android:layout_marginBottom="151dp"
+        android:fontFamily="@font/katuri"
+        android:text="Play"
+        android:textColor="#000000"
+        android:textSize="64sp" />
 
 </RelativeLayout>

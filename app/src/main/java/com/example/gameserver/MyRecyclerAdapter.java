@@ -18,6 +18,9 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
     public MyRecyclerAdapter(List<Rank> ranks){ //rank list받음.
         mList = ranks;
     }
+    public MyRecyclerAdapter(){ //rank list받음.
+
+    }
     @NonNull
     @Override
     public MyRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -53,8 +56,9 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
         }
         void onBind(Rank item){
             tv_rank.setText(i+"위");
-            tv_score.setText(item.getScore().trim());
+            tv_score.setText(item.getScore().trim()+"점");
             tv_name.setText(item.getNickName().trim());
         }
     }
+
 }

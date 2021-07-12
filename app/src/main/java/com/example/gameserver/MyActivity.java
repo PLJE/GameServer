@@ -28,6 +28,7 @@ import com.kakao.util.exception.KakaoException;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -40,12 +41,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MyActivity extends AppCompatActivity {
 
     private String nick, image, email , bestscore;
-    private TextView nickname, tv_bestscore ;
-    private ImageView Img;
+    private TextView nickname, tv_bestscore, rank;
+    private ImageView Img, imageRank;
+    private int rrank;
 
     private String BASE_URL = "http://192.249.18.168:80";
     private RetrofitInterface retrofitInterface;
     private Retrofit retrofit;
+
+    List<Rank> ranking = new ArrayList<Rank>(); //
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,12 +117,58 @@ public class MyActivity extends AppCompatActivity {
             }
         });
 
+        imageRank = findViewById(R.id.imageRank);
+
+        Call<List<Rank>> call2 = retrofitInterface.executerank();
+        call2.enqueue(new Callback<List<Rank>>() {
+            @Override
+            public void onResponse(Call<List<Rank>> call2, Response<List<Rank>> response) {
+                ranking = response.body(); // 데이터 받음 List<Rank> ranking
+
+                MiniComparator comp = new MiniComparator();
+                Collections.sort(ranking,comp);
+
+                rank = (TextView)findViewById(R.id.myPageRank);
+                rrank = getRank(nick)+1 ;
+                rank.setText(rrank + "위");
+
+                if (rrank == 1){
+                    imageRank.setImageResource(R.drawable.gold);
+                }
+                else if (rrank == 2){
+                    imageRank.setImageResource(R.drawable.silver);
+                }
+                else if (rrank == 3){
+                    imageRank.setImageResource(R.drawable.bronze);
+                }
+                else if (rrank >= 4){
+                    imageRank.setImageResource(R.drawable.crying);
+                }
+            }
+
+
+            @Override
+            public void onFailure(Call<List<Rank>> call2, Throwable t) {
+                Toast.makeText(MyActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
         nickname = (TextView)findViewById(R.id.tv_name);
         nickname.setText(nick);
         Img = findViewById(R.id.iv_image);
+
+
         if(image != null)
             Glide.with(this).load(image).into(Img);
-        //tv_bestscore = (TextView)findViewById(R.id.tv_bestscore);
-        //tv_bestscore.setText("최고점수: " + bestscore + "점");
+
+    }
+
+    public int getRank(String name){//
+        for(int i=0;i<ranking.size();i++){
+            if(name.equals(ranking.get(i).getNickName())){
+                return i;
+            }
+        }
+        return -1; //error
     }
 }
