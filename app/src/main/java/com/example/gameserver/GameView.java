@@ -117,12 +117,15 @@ public class GameView extends SurfaceView implements Runnable{
         }
 
         if (flight.isGoingUp)
-            flight.y -= 30 * screenRatioY;
+            flight.y -= 26 * screenRatioY; //바꿈
         else
             flight.y += 30 * screenRatioY;
 
-        if (flight.y < 0)
-            flight.y = 0;
+        if (flight.y < (26 * screenRatioY)){
+            //바꿈
+            flight.y = (int) (26 * screenRatioY);
+        }
+
 
         if (flight.y >= screenY - flight.height)
             flight.y = screenY - flight.height;
@@ -131,7 +134,7 @@ public class GameView extends SurfaceView implements Runnable{
 
         for (Bullet bullet : bullets) {
 
-            if (bullet.x > screenX)
+            if (bullet.x > screenX - (10 * screenRatioX))
                 trash.add(bullet);
 
             bullet.x += 50 * screenRatioX;
@@ -142,8 +145,8 @@ public class GameView extends SurfaceView implements Runnable{
                         bullet.getCollisionShape())) {
 
                     score++;
-                    bird.x = -500;
-                    bullet.x = screenX + 500;
+                    bird.x = -1000;
+                    bullet.x = screenX + 1000;
                     bird.wasShot = true;
 
                 }
@@ -168,12 +171,12 @@ public class GameView extends SurfaceView implements Runnable{
 
                 int bound = (int) (30 * screenRatioX);
                 bird.speed = random.nextInt(bound);
-
                 if (bird.speed < 10 * screenRatioX)
                     bird.speed = (int) (10 * screenRatioX);
 
                 bird.x = screenX;
-                bird.y = random.nextInt(screenY - bird.height);
+                int bird_Y = random.nextInt(screenY - bird.height - (int)(220 * screenRatioY));
+                bird.y = bird_Y + (int)(90 * screenRatioY);
 
                 bird.wasShot = false;
             }
@@ -224,8 +227,8 @@ public class GameView extends SurfaceView implements Runnable{
     private void waitBeforeExiting() {
 
         try {
-            Thread.sleep(3000);
-            activity.startActivity(new Intent(activity, MainActivity.class));
+            Thread.sleep(1000); //바꿈
+            activity.startActivity(new Intent(activity, GameMainActivity.class));
             activity.finish();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -275,17 +278,17 @@ public class GameView extends SurfaceView implements Runnable{
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                if (event.getX() < screenX / 2) {
+                if (event.getX() < screenX
+                        / 2) {
                     flight.isGoingUp = true;
                 }
+                else
+                    flight.toShoot++;
                 break;
             case MotionEvent.ACTION_UP:
                 flight.isGoingUp = false;
-                if (event.getX() > screenX / 2)
-                    flight.toShoot++;
                 break;
         }
-
         return true;
     }
 
@@ -295,8 +298,8 @@ public class GameView extends SurfaceView implements Runnable{
             soundPool.play(sound, 1, 1, 0, 0, 1);
 
         Bullet bullet = new Bullet(getResources());
-        bullet.x = flight.x + flight.width;
-        bullet.y = flight.y + (flight.height / 2);
+        bullet.x = flight.x + flight.width - (int)(150 * screenRatioX);
+        bullet.y = flight.y + (flight.height - (int)(320 * screenRatioX)); //바꿈
         bullets.add(bullet);
 
     }

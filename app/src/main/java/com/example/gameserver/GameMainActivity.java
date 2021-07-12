@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class GameMainActivity extends AppCompatActivity {
 
-    private boolean isMute;
+    private boolean isMute; //소리 여부 true=소리x
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
