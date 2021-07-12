@@ -24,4 +24,7 @@ public interface RetrofitInterface {
 
     @GET("/user/rankrequest")
     Call <List<Rank>> executerank();
+
+    @POST("/user/getBestScore")
+    Call <BestScore> getBestScore (@Body HashMap<String, String> map);
 }

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
@@ -22,7 +23,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class GameMainActivity extends AppCompatActivity {
 
     private boolean isMute;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +71,5 @@ public class GameMainActivity extends AppCompatActivity {
 
             }
         });
-
     }
 }

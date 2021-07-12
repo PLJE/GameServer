@@ -2,6 +2,7 @@ package com.example.gameserver;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.WindowManager;
@@ -34,7 +35,6 @@ public class  GameActivity extends AppCompatActivity {
 
         gameView = new GameView(this, point.x, point.y);
         setContentView(gameView);
-
         //-----------------------------------------------------------
 //        retrofit = new Retrofit.Builder()
 //                .baseUrl(BASE_URL)
@@ -57,8 +57,11 @@ public class  GameActivity extends AppCompatActivity {
 //
 //            }
 //        });
-
         //---------------------------------------------------------
+        if(gameView.IsOver()) {
+            Intent intent = new Intent(GameActivity.this, SubActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override
