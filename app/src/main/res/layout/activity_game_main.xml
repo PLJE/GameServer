@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameMainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="78dp"
+        android:layout_marginEnd="240dp"
+        android:layout_marginBottom="282dp"
+        android:fontFamily="@font/katuri"
+        android:gravity="center"
+        android:text="I Have To Fly!"
+        android:textColor="#ffffff"
+        android:textSize="40sp" />
+
+    <ImageView
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:id="@+id/volumeCtrl"
+        android:src="@drawable/ic_baseline_volume_up_24"/>
+
+    <TextView
+        android:id="@+id/play"
+        android:layout_width="194dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="290dp"
+        android:layout_marginEnd="247dp"
+        android:layout_marginBottom="151dp"
+        android:fontFamily="@font/katuri"
+        android:text="Play"
+        android:textColor="#000000"
+        android:textSize="64sp" />
+
+</RelativeLayout>
