@@ -1,5 +1,6 @@
 package com.example.gameserver;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class SubActivity extends AppCompatActivity {
 
@@ -55,6 +57,29 @@ public class SubActivity extends AppCompatActivity {
                 intent.putExtra("email", email);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+        });
+        findViewById(R.id.bt_chat).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                View view = getLayoutInflater().inflate(R.layout.enter_chat, null); //로그인 다이얼로그 뷰로 띄우기
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(SubActivity.this);
+
+                builder.setView(view).show();
+                final EditText nickname = view.findViewById(R.id.nickname);
+                view.findViewById(R.id.enter).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(SubActivity.this, ChatActivity.class);
+                        intent.putExtra("name", nickname.getText().toString());
+                        startActivity(intent);
+                    }
+                });
+
+
+
             }
         });
     }

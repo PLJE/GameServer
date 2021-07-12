@@ -63,4 +63,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.498" />
 
+    <Button
+        android:id="@+id/bt_chat"
+        android:layout_width="60dp"
+        android:layout_height="63dp"
+        android:background="@drawable/radius"
+        android:fontFamily="@font/katuri"
+        android:text="chat"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.878" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
