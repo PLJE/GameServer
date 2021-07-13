@@ -5,16 +5,20 @@
     android:orientation="vertical">
 
     <EditText
+        android:id="@+id/nickname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Nickname"
         android:layout_margin="8dp"
-        android:id="@+id/nickname"/>
+        android:fontFamily="@font/katuri"
+        android:hint="어떤 이름으로 입장하실래요?" />
+
     <Button
+        android:id="@+id/enter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter the room"
         android:layout_margin="4dp"
-        android:id="@+id/enter"/>
+        android:fontFamily="@font/katuri"
+        android:hint="익명채팅 입장하기"
+        android:textColorHint="#F3EBEB" />
 
 </LinearLayout>

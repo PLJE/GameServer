@@ -7,9 +7,9 @@
     <application
         android:name=".CustomApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/ic_launcher_heart"
+        android:label="LoveBullet"
+        android:roundIcon="@mipmap/ic_launcher_heart_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GameServer"
         android:usesCleartextTraffic="true"
@@ -25,7 +25,8 @@
             android:screenOrientation="landscape"/>
         <activity android:name=".GameActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".ChatActivity"/>
+        <activity android:name=".ChatActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait" >
             <intent-filter>

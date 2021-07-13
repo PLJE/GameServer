@@ -4,38 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ECE4A3"
     tools:context=".ChatActivity">
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recyclerView"
-        android:layout_above="@id/messageEdit"/>
+        android:layout_above="@id/messageEdit" />
 
     <EditText
+        android:id="@+id/messageEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/edittext_design"
-        android:padding="8dp"
-        android:hint="Message..."
-        android:textSize="16sp"
-        android:layout_toStartOf="@id/sendBtn"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:id="@+id/messageEdit" />
+        android:layout_toStartOf="@id/sendBtn"
+        android:background="@drawable/edittext_design"
+        android:fontFamily="@font/katuri"
+        android:hint="메시지를 입력하세요"
+        android:padding="8dp"
+        android:textSize="16sp" />
 
     <TextView
+        android:id="@+id/sendBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send"
-        android:padding="10dp"
-        android:visibility="invisible"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="16dp"
-        android:id="@+id/sendBtn"
-        android:textColor="#020C40" />
+        android:fontFamily="@font/katuri"
+        android:padding="10dp"
+        android:text="전송"
+        android:textColor="#4454A8"
+        android:visibility="invisible" />
 
 </RelativeLayout>

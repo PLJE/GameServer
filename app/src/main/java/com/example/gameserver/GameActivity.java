@@ -58,10 +58,10 @@ public class  GameActivity extends AppCompatActivity {
 //            }
 //        });
         //---------------------------------------------------------
-        if(gameView.IsOver()) {
-            Intent intent = new Intent(GameActivity.this, SubActivity.class);
-            startActivity(intent);
-        }
+//        if(gameView.IsOver()) {
+//            Intent intent = new Intent(GameActivity.this, SubActivity.class);
+//            startActivity(intent);
+//        }
     }
 
     @Override

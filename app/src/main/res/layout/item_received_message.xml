@@ -4,23 +4,28 @@
     android:layout_height="wrap_content">
 
     <TextView
+        android:id="@+id/nameTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:id="@+id/nameTxt"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/katuri"
         android:text="Name"
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/receivedTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/nameTxt"
-        android:textColor="#8BC34A"
-        android:padding="8dp"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="4dp"
-        android:textSize="16sp"
-        android:id="@+id/receivedTxt"
-        android:text="Hello this is a sample text"/>
+        android:fontFamily="@font/katuri"
+        android:background="@drawable/round2"
+        android:padding="8dp"
+        android:text="Hello this is a sample text"
+        android:textSize="16sp" />
 
 </RelativeLayout>
