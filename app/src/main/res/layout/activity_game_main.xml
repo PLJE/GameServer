@@ -28,8 +28,9 @@
         android:fontFamily="@font/katuri"
         android:gravity="center"
         android:text="I Have To Fly!"
-        android:textColor="#ffffff"
-        android:textSize="40sp" />
+        android:textColor="#BC00BCD4"
+        android:textSize="40sp"
+        />
 
     <ImageView
         android:layout_width="36dp"
