@@ -4,6 +4,11 @@
 Love Bullet
 ```
 
+## 팀원
+-김영경
+-이주은
+-최정재
+
 ## 프로젝트 설명
 
 ```
@@ -45,8 +50,7 @@ update, draw, sleep 함수를 반복적으로 불러와 화면이 움직이는 �
 
 ### 마이페이지
 
-<img src="https://user-images.githubusercontent.com/80809782/125423831-196d8508-8c12-4742-bc21-90eb78bb3fe4.png" width="200" height="400">
-<img src="https://user-images.githubusercontent.com/80809782/125423851-f69e16de-49c6-47b7-93f3-38349c5c23dd.png" width="200" height="400">
+<img src="https://user-images.githubusercontent.com/80809782/125423831-196d8508-8c12-4742-bc21-90eb78bb3fe4.png" width="200" height="400"><img src="https://user-images.githubusercontent.com/80809782/125423851-f69e16de-49c6-47b7-93f3-38349c5c23dd.png" width="200" height="400">
 
 ```
 마이페이지 버튼을 누르면
